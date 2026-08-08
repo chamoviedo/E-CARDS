@@ -33,38 +33,10 @@ create another table and link to tbl_cards
 -create a table to separate stage
 -->
 
-CREATE TABLE tbl_collections (
-    id SERIAL PRIMARY KEY,
-    collectionSetName VARCHAR(100) NOT NULL,
-    release_date DATE NOT NULL,
-    totalCardsInCollection SMALLINT NOT NULL
-);
+ para criar os seeds 
+        novo chat 
+        consider table bellow  ou concidere as tabelas a baixo e cole a  tabela
 
-CREATE TABLE tbl_types (
-    id SERIAL PRIMARY KEY,
-    typeName VARCHAR(30) NOT NULL UNIQUE
-);
+        - create a initial seed to all tables, with tcg pokemon cards generate inserts scripts
 
-CREATE TABLE tbl_stages (
-    id SERIAL PRIMARY KEY,
-    stageName VARCHAR(20) NOT NULL UNIQUE
-);
-
-CREATE TABLE tbl_cards (
-    id SERIAL PRIMARY KEY,
-    hp SMALLINT,
-    name VARCHAR(80) NOT NULL,
-    info TEXT,
-    attack VARCHAR(100),
-    damage VARCHAR(20),
-    weak VARCHAR(30),
-    resses VARCHAR(30),
-    retreat VARCHAR(20),
-    cardNumberInCollection SMALLINT NOT NULL,
-    collection_id INT NOT NULL,
-    type_id INT NOT NULL,
-    stage_id INT NOT NULL,
-    CONSTRAINT fk_collection FOREIGN KEY (collection_id) REFERENCES tbl_collections (id) ON DELETE CASCADE,
-    CONSTRAINT fk_type FOREIGN KEY (type_id) REFERENCES tbl_types (id) ON DELETE RESTRICT,
-    CONSTRAINT fk_stage FOREIGN KEY (stage_id) REFERENCES tbl_stages (id) ON DELETE RESTRICT
-);
+        -generate 20 inserts records to table tbl_cards 
